@@ -1,0 +1,29 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "da5b695"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "ndtoan96/ouch"
+rev = "cfb9140"
+hash = "b5067143415bd2d46c0dfa57319ddcef"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "da5b695"
+hash = "8a7c58225816a163a6e8730c0adafbc8"
+
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "31c143a"
+hash = "89e540aad3e89e4136446f10d1a88f1b"
+
+[[flavor.deps]]
+use = "kalidyasin/yazi-flavors:tokyonight-night"
+rev = "fa19b40"
+hash = "648270973268682226755084692d6dfc"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "9276ffa"
+hash = "b069dba45e199684b16fa12d385642ed"

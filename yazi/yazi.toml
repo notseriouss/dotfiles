@@ -1,0 +1,66 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[mgr]
+linemode    = "size_and_mtime"
+show_hidden = true
+sort_by     = "mtime"
+show_symlink = true
+
+# mouse_events = []
+
+[preview]
+wrap       = "yes"
+max_width  = 1500
+max_height = 1500
+tab_size   = 4
+image_quality = 90
+image_preview = ["sixel", "kitty-old"]
+
+[opener]
+edit = [
+  #
+  { run = '${EDITOR:=nvim} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+  { run = 'code "%*"', orphan = true, for = "windows" },
+]
+open = [
+  #
+  { run = 'xdg-open "$@"', desc = "Open", for = "linux" },
+  { run = 'open "$@"', desc = "Open", for = "macos" },
+  { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+]
+reveal = [
+  #
+  { run = 'open -R "$1"', desc = "Reveal", for = "macos" },
+  { run = 'explorer /select, "%1"', orphan = true, desc = "Reveal", for = "windows" },
+  { run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF", for = "unix" },
+]
+extract = [
+  #
+  { run = 'unar "$1"', desc = "Extract here", for = "unix" },
+  { run = 'unar "%1"', desc = "Extract here", for = "windows" },
+]
+play = [
+  #
+  { run = 'mpv "$@"', orphan = true, for = "unix" },
+  { run = 'mpv "%1"', orphan = true, for = "windows" },
+  { run = '''mediainfo "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show media info", for = "unix" },
+]
+
+
+
+[plugin]
+  prepend_preloaders = [
+    # Replace magick, image, video with mediainfo
+    { mime = "{audio,video,image}/*", run = "mediainfo" },
+    #{ mime = "application/subrip", run = "mediainfo" },
+    # Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
+    #{ mime = "application/postscript", run = "mediainfo" },
+  ]
+  prepend_previewers = [
+    { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run  = "ouch" },
+    # Replace magick, image, video with mediainfo
+    { mime = "{audio,video,image}/*", run = "mediainfo"},
+    #{ mime = "application/subrip", run = "mediainfo" },
+    # Adobe Illustrator, Adobe Photoshop is image/adobe.photoshop, already handled above
+    #{ mime = "application/postscript", run = "mediainfo" },
+  ]

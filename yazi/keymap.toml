@@ -1,0 +1,9 @@
+
+[mgr]
+
+prepend_keymap = [
+
+	{ on = "<C-1>", run = "plugin toggle-pane max-parent" },
+	{ on = "<C-2>", run = "plugin toggle-pane max-current" },
+	{ on = "<C-3>", run = "plugin toggle-pane max-preview" },
+]

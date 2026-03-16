@@ -1,0 +1,22 @@
+
+# UI
+theme = Adwaita Dark
+#theme = tokyonight
+background-opacity = 0.50
+background-blur-radius = 20
+
+# FONT
+font-family="Iosevka Term Extended"
+font-size=25
+
+
+# ENV
+shell-integration = zsh
+shell-integration-features = no-cursor
+scrollback-limit = 100000000
+
+
+# SCROLL
+mouse-scroll-multiplier = 1
+cursor-style = block
+cursor-style-blink = false
